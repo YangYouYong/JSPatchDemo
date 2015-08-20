@@ -1,6 +1,8 @@
 ###JSPatch 动态通过指定URL 的js文件更改app内方法的调用实现后台动态更改app代码的效果.
 ####应用场合:用于app发布appStore后的补丁修改
 ##### 核心代码及配置
+URL为要加载的JS文件的URL路径(可以是网络也可以是本地)
+
 ```
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
