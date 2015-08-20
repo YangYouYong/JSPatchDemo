@@ -18,20 +18,20 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
     [JPEngine startEngine];
     [NSURLConnection sendAsynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"https://github.com/YangYouYong/patch/raw/master/patch.js"]]
                                        queue:[NSOperationQueue mainQueue]
                            completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
                                
                                NSString *script = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-        if (script) {
-            [JPEngine evaluateScript:script];
-            self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
-            self.window.rootViewController = [[ViewController alloc] init];
-            [self.window makeKeyAndVisible];
-        }
-    }];
+                               if (script) {
+                                   [JPEngine evaluateScript:script];
+                                   self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+                                   self.window.rootViewController = [[ViewController alloc] init];
+                                   [self.window makeKeyAndVisible];
+                               }
+                           }];
     
     return YES;
 }
